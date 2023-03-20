@@ -1382,14 +1382,14 @@ class BaseEpochs(ProjMixin, ContainsMixin, UpdateChannelsMixin,
         else:
             # we start out with an empty array, allocate only if necessary
             data = np.empty((0, len(self.info['ch_names']), len(self.times)))
-            msg = (f'for {n_events} events and {len(self._raw_times)} '
-                   'original time points')
-            if self._decim > 1:
-                msg += ' (prior to decimation)'
-            if getattr(self._raw, "preload", False):
-                logger.info(f'Using data from preloaded Raw {msg} ...')
-            else:
-                logger.info(f'Loading data {msg} ...')
+            # msg = (f'for {n_events} events and {len(self._raw_times)} '
+            #        'original time points')
+            # if self._decim > 1:
+            #     msg += ' (prior to decimation)'
+            # if getattr(self._raw, "preload", False):
+            #     logger.info(f'Using data from preloaded Raw {msg} ...')
+            # else:
+            #     logger.info(f'Loading data {msg} ...')
 
         orig_picks = picks
         if orig_picks is None:
@@ -1475,7 +1475,7 @@ class BaseEpochs(ProjMixin, ContainsMixin, UpdateChannelsMixin,
             del drop_log
 
             self._bad_dropped = True
-            logger.info("%d bad epochs dropped" % (n_events - len(good_idx)))
+            # logger.info("%d bad epochs dropped" % (n_events - len(good_idx)))
 
             # adjust the data size if there is a reason to (output or update)
             if out or self.preload:
