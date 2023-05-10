@@ -678,7 +678,7 @@ class UpdateChannelsMixin(object):
 
         .. versionadded:: 0.9.0
         """
-        ch_names = list(set(ch_names) & set(self.info['ch_names']))
+        ch_names = [ch for ch in ch_names if ch in self.info['ch_names']]
         picks = pick_channels(self.info['ch_names'], ch_names, ordered=ordered)
         return self._pick_drop_channels(picks)
 
